@@ -40,8 +40,7 @@ function checkAnswer(questionNumber) {
   
   function largerNumber(a, b) {
     // Starter code for Question 1
-    // Write your code here
-    
+    return a > b ? a : b;
   }
   
   function isPalindrome(str) {
@@ -49,11 +48,48 @@ function checkAnswer(questionNumber) {
     // Write your code here
     
   }
+
+  function sumEvenNumbers( nums ) {
+    // Starter code for Question 3
+
+    // check if num is even
+    // if it's even, add to sum
+
+    let sum = 0;
+    for( let i in nums ) {
+      if( nums[i] % 2 == 0 ) {
+        sum += nums[i];
+      }
+    }
+
+    return sum;
+
+  }
   
-  function startsWithVowel(strings) {
+  function startsWithVowel(strs) {
     // Starter code for Question 4
     const vowels = ["a", "e", "i", "o", "u"];
-    const result = [];
+    let result = [];
+
+    // check each string in array
+    // compare first letter to vowels
+    // if they match
+      // add string to result
+
+    for( let s in strs ) {
+      // ignore case
+      //strs[s] = strs[s].replace(/\s/g, "").toLowerCase();
+      for( let v in vowels ) {
+        // if the first letter is found in list of vowels
+        if( strs[s][0] == vowels[v] ) {
+          result.push( strs[s] );
+        }
+      }
+    }
+
+    console.log( result );
+
+    return result;
   }
   
   function areAnagrams(str1, str2) {
@@ -65,17 +101,37 @@ function checkAnswer(questionNumber) {
   
   function average(numbers) {
     // Starter code for Question 6
+    // check if array is empty
+    if ( numbers.length == 0 ) { return 0; }
+
+    // sum each number in array
+    let sum = 0;
+    for( let i in numbers ) {
+      sum += numbers[i];
+    }
     
+    return sum / numbers.length;
   }
   
   function isValidEmail(email) {
     // Starter code for Question 7
-   
+
+    // check for @ in email
+      // if there's an @ check for '.com'
+    // if theres a valid email return true
+
+    for( let c in email ) {
+      if( email[c] === '@' ) {
+        return email.substring( email.length - 4, email.length ) == '.com';
+      }
+    }
+    return false;
   }
   
   function isDivisibleBy(num1, num2) {
     // Starter code for Question 8
-   
+    if(num2 == 0) { return "Cannot divide by 0"; }
+    return num1 % num2 == 0;
   }
   
   function findPalindromes(strings) {
@@ -85,4 +141,22 @@ function checkAnswer(questionNumber) {
   
   function countWords(str) {
     // Starter code for Question 10    
+
+    // for each char in str
+      // check if its a letter or space
+      // for each space
+        // increase words found
+
+    // ensure string is not empty
+    if( str.length == 0 ) { return 0 ; }
+
+    let words = 1;
+
+    for( c in str ) {
+      if( str[c] === ' ' ) {
+        words++;
+      }
+    }
+
+    return words;
   }
