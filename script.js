@@ -45,8 +45,22 @@ function checkAnswer(questionNumber) {
   
   function isPalindrome(str) {
     // Starter code for Question 2
-    // Write your code here
     
+    // take the length of the word
+    // compare the first letter to the last and see if they match
+    // continue until midpoint
+    // if any space does not match, return false
+
+    let end = str.length - 1;
+
+    // from beginning to halfway
+    for(let start = 0; start < str.length / 2; start++ ) {
+      // compare to end offset by how far we've traveled
+      if( str[start] !== str[ end - start ] ) {
+        return false;
+      }
+    }
+    return true;
   }
 
   function sumEvenNumbers( nums ) {
@@ -56,6 +70,7 @@ function checkAnswer(questionNumber) {
     // if it's even, add to sum
 
     let sum = 0;
+
     for( let i in nums ) {
       if( nums[i] % 2 == 0 ) {
         sum += nums[i];
@@ -63,7 +78,6 @@ function checkAnswer(questionNumber) {
     }
 
     return sum;
-
   }
   
   function startsWithVowel(strs) {
@@ -77,8 +91,6 @@ function checkAnswer(questionNumber) {
       // add string to result
 
     for( let s in strs ) {
-      // ignore case
-      //strs[s] = strs[s].replace(/\s/g, "").toLowerCase();
       for( let v in vowels ) {
         // if the first letter is found in list of vowels
         if( strs[s][0] == vowels[v] ) {
@@ -86,8 +98,6 @@ function checkAnswer(questionNumber) {
         }
       }
     }
-
-    console.log( result );
 
     return result;
   }
@@ -137,6 +147,20 @@ function checkAnswer(questionNumber) {
   function findPalindromes(strings) {
     // Starter code for Question 9
     
+    // for every string given
+    // check if it's a palindrome
+    // if it is, add to array
+    // return array
+
+    let result = [];
+
+    for( let s in strings ) {
+      if( isPalindrome( strings[s] ) ) {
+        result.push( strings[s] );
+      }
+    }
+
+    return result;
   }
   
   function countWords(str) {
